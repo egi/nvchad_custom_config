@@ -1,4 +1,4 @@
--- local overrides = require "custom.plugins.overrides"
+local overrides = require "custom.plugins.overrides"
 
 return {
 
@@ -7,6 +7,10 @@ return {
       require "plugins.configs.lspconfig"
       require "custom.plugin_confs.lspconfig"
     end,
+  },
+
+  ["kyazdani42/nvim-tree.lua"] = {
+    override_options = overrides.nvimtree,
   },
 
    ["jose-elias-alvarez/null-ls.nvim"] = {

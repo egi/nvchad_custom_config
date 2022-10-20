@@ -29,7 +29,8 @@ M.general = {
     ["<leader>c"] = { "<cmd> :lua require('trim.trimmer').trim()<cr>", "clean up trailing whitespace" },
 
     -- compress excess whitespace on current line
-    ["<leader>e"] = { "<cmd> :s/\\v(\\S+)\\s+/\\1 /<cr>:nohl<cr>", "compress excess whitespace on current line" },
+    -- FIXME: conflicting with nvimtree.focus
+    -- ["<leader>e"] = { "<cmd> :s/\\v(\\S+)\\s+/\\1 /<cr>:nohl<cr>", "compress excess whitespace on current line" },
 
     -- buffer resizing mappings (shift + arrow key)
     ["<S-Up>"] = { "<cmd> <c-w>+", "buffer resize up" },
@@ -109,7 +110,7 @@ M.comment = {
    n = {
       ["<C-_>"] = {
          function()
-            require("Comment.api").toggle_current_linewise()
+            require("Comment.api").toggle.linewise.current()
          end,
 
          "蘒  toggle comment",
@@ -118,7 +119,7 @@ M.comment = {
 
    v = {
       ["<C-_>"] = {
-         "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
+         "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
          "蘒  toggle comment",
       },
    },

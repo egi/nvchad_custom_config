@@ -48,7 +48,7 @@ lspconfig["groovyls"].setup {
 
 -- typescript
 
--- lspconfig.tsserver.setup {
+-- lspconfig["tsserver"].setup {
 --    cmd = { "typescript-language-server", "--stdio" },
 --    filetypes = {"typescriptreact", "typescript.tsx"},
 --    root_dir = root_pattern("package.json", "tsconfig.json")
